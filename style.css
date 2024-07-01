@@ -8,6 +8,9 @@
   src: url(Witcha.otf);
 }
 
+#botaoMenu {
+  background: black;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -24,10 +27,11 @@
   }
 }
 
-/*Personalização Body/INDEX*/
+/*Personalização Body/ INDEX*/
 body {
   background-image: url(imagens/background.png);
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* The side navigation menu */
@@ -43,7 +47,7 @@ body {
   top: 0;
   /* Stay at the top */
   left: 0;
-  background-color: #111;
+  background-color: rgba(0, 0, 0, 0.9);
   /* Black*/
   overflow-x: hidden;
   /* Disable horizontal scroll */
@@ -213,10 +217,10 @@ nav ul li a:hover:before {
 footer {
   background-color: #AF876F;
   text-align: center;
-  width: 100%;
   height: 50px;
-  margin: auto;
+  margin: -8px;
   bottom: 0;
+  position: static;
 
 }
 
@@ -227,4 +231,133 @@ b {
 
 #p_rodape {
   background-color: #FFFFF3;
+}
+
+.vejamais {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#inspiracao {
+  display: flex;
+  justify-content: center;
+  /* Alinha os itens horizontalmente no centro */
+  align-items: center;
+  /* Alinha os itens verticalmente no centro */
+  flex-wrap: wrap;
+  /* Permite que as seções quebrem para a próxima linha se necessário */
+}
+
+#influencers {
+  display: flex;
+  justify-content: center;
+  /* Alinha os itens horizontalmente no centro */
+  align-items: center;
+  /* Alinha os itens verticalmente no centro */
+  flex-wrap: wrap;
+  /* Permite que as seções quebrem para a próxima linha se necessário */
+}
+
+.inspiracao {
+  text-align: center;
+  /* Centraliza o conteúdo dentro de cada seção */
+  margin: 10px;
+  /* Espaçamento entre as seções */
+}
+
+.inspiracao img {
+  max-width: 100%;
+  /* Para garantir que as imagens não ultrapassem o tamanho da seção */
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.caption {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  /* Tamanho base do texto da legenda */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+  .caption,
+  .inspiracao-info {
+    font-size: 6px;
+    /* Ajuste para telas menores */
+  }
+
+
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  /* largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* cor de fundo da trilha da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* cor do controle deslizante da barra de rolagem */
+  border-radius: 5px;
+  /* borda arredondada do controle deslizante */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* cor do controle deslizante ao passar o mouse */
+}
+
+#mySidenav>a {
+  cursor: pointer;
+}
+
+.inspiracao-info>a {
+  text-decoration: none;
+  color: white;
 }

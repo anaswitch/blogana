@@ -9,49 +9,56 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-//Conteudo Push NavBar
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+
+function menuInspiracoes() {
+  closeNav();
+  document.getElementById("main").style.display = "none";
+  document.getElementById("inspiracao").style.display = "";
+  document.getElementById("influencers").style.display = "none";
+
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+function menuInfluencers() {
+  closeNav();
+  document.getElementById("main").style.display = "none";
+  document.getElementById("inspiracao").style.display = "none";
+
+  document.getElementById("influencers").style.display = "";
 }
-//Conteudo push nab bar com opacidade
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+function menuMain() {
+  closeNav();
+  document.getElementById("main").style.display = "";
+  document.getElementById("inspiracao").style.display = "none";
+  document.getElementById("influencers").style.display = "none";
+
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.body.style.backgroundColor = "white";
-}
-//Largura Nav Bar
-/* Open the sidenav */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
 
-/* Close/hide the sidenav */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-//Nav Bar animação
-/* Open the sidenav */
-function openNav() {
-  document.getElementById("mySidenav").style.display = "block";
-}
+  lightboxTriggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function (event) {
+      event.preventDefault();
+      createLightbox(trigger);
+    });
+  });
 
-/* Close/hide the sidenav */
-function closeNav() {
-  document.getElementById("mySidenav").style.display = "none";
-}
+  function createLightbox(trigger) {
+    const imageUrl = trigger.href;
+    const imageCaption = trigger.querySelector('.inspiracao-info').innerHTML;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+  <div class="lightbox-content">
+    <span class="close-btn">&times;</span>
+    <img src="${imageUrl}">
+      <div class="caption">${imageCaption}</div>
+  </div>`;
+    document.body.appendChild(lightbox);
+
+    lightbox.querySelector('.close-btn').addEventListener('click', function () {
+      lightbox.remove();
+    });
+  }
+});

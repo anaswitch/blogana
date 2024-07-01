@@ -10,57 +10,175 @@
     <script src="script.js"></script>
     <title>Relicário Fashion</title>
 </head>
+
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Início</a><
-        <a href="#">Inspirações</a><
-        <a href="#">Influencers</a><
-        <a href="forum.html">Fórum</a><
-        <a href="cadastro.html">Cadastre-se</a><
-        <a href="#">Login</a><
+        <a onclick="menuMain()">Início</a>
+        <a onclick="menuInspiracoes()">Inspirações</a>
+        <a onclick="menuInfluencers()">Influencers</a>
+        <a href="forum.html">Fórum</a>
+        <a href="cadastro.html">Cadastre-se</a>
+        <a href="#">Login</a>
     </div>
-    <h1> A moda vintage</h1>
-    <p>A moda vintage é algo verdadeiramente antigo, mas que é facilmente usado atualmente, já que permanece em alta na
-        moda. Além disso, para uma peça ser considerada vintage, é preciso que tenha, no mínimo, 20 anos de idade</p>
-    <span onclick="openNav()">open</span>
+    <button id="botaoMenu" onclick="openNav()">⚜️</button>
+    <br><br><br><br>
     <div id="main">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem blanditiis repellendus tenetur explicabo
-        illo. Doloremque, modi non? Quaerat vero sit nulla odio pariatur animi harum perferendis ut dolore error. Ullam.
+        <h1> A moda vintage</h1>
+        <br><br><br><br>
+        <p>A moda vintage é algo verdadeiramente antigo, mas que é facilmente usado atualmente,
+            já que permanece em alta na
+            moda. Além disso, para uma peça ser considerada vintage, é preciso que tenha, no
+            mínimo, 20 anos de idadee tenha um estilo que reflita a época em que foi criada. Muitas pessoas são atraídas
+            pela moda vintage não apenas pela
+            sua estética única e nostálgica, mas também pela sua sustentabilidade. Reutilizar peças de décadas passadas
+            é
+            uma forma de reduzir o impacto ambiental da indústria da moda, que muitas vezes é criticada por seu
+            desperdício
+            e consumo
+            excessivo de recursos.</p>
+
+        <p>Além disso, o interesse pela moda vintage está intimamente ligado à busca por individualidade e
+            autenticidade.
+            Ao usar
+            roupas vintage, as pessoas podem expressar seu estilo de maneira única, diferenciando-se das tendências
+            massificadas e
+            da moda rápida que dominam o mercado atual. Cada peça vintage conta uma história, seja através de seu
+            design,
+            dos
+            materiais utilizados ou das marcas que a produziram.
+        </p>
+        <p> No entanto, encontrar e adquirir peças vintage autênticas nem sempre é fácil. É necessário tempo e paciência
+            para
+            garimpar lojas especializadas, mercados de pulga ou brechós, onde muitas vezes esses tesouros do passado
+            podem
+            ser
+            encontrados. Para os entusiastas da moda vintage, o processo de descoberta e a sensação de encontrar uma
+            peça
+            única e
+            especial são parte integrante da experiência.
+        </p>
+        <p> Assim, a moda vintage não é apenas uma tendência passageira, mas sim um movimento cultural e sustentável que
+            continua a
+            ganhar adeptos ao redor do mundo, celebrando o estilo e a história por trás de cada peça.</p>
+
+        <p onclick="openNav()" class="vejamais">Veja mais</p>
     </div>
-    <div id="inspiracao">
+
+
+    </div>
+    <div style="display: none" ; id="inspiracao">
+        <br><br><br><br>
         <section class="inspiracao">
-            <img src="imagens/img1.jpg" >
+            <a href="imagens/img1.jpg" class="lightbox-trigger"><img src="imagens/img1.jpg"></a>
+
             <div class="inspiracao-info">
-                <h2>x</h2>
-                <p>xxxxxxxxxxxxxxxxxxxxxxx</p>
+                <h2>Jennifer</h2>
+                <p>Um ícone de sofisticação vintage emerge na elegância simples de uma camisa branca imaculada, calça
+                    preta clássica e
+                    blazer cinza atemporal. Seu estilo transcende décadas, combinando modernidade com a eterna elegância
+                    do passado.</p>
             </div>
         </section>
         <section class="inspiracao">
-            <img src="imagens/img2.jpg" >
+
+            <a href="imagens/img2.jpg" class="lightbox-trigger"><img src="imagens/img2.jpg"></a>
             <div class="inspiracao-info">
-                <h2>x</h2>
-                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                <h2>Sophia</h2>
+                <p>Em um contraste suave e impecável, a camisa branca se une ao minimalismo refinado da calça branca e
+                    um cinto discreto,
+                    criando um estilo que celebra a pureza e a simplicidade. Um olhar atemporal que captura a essência
+                    do chic contemporâneo
+                    com um toque vintage.</p>
             </div>
         </section>
         <section class="inspiracao">
-            <img src="imagens/img3.jpg" >
+            <a href="imagens/img3.jpg" class="lightbox-trigger"><img src="imagens/img3.jpg"></a>
             <div class="inspiracao-info">
-                <h2>x</h2>
-                <p>xxxxxxxxxxxxxxxxx</p>
+                <h2>Sarah</h2>
+                <p>Em um cenário de elegância outonal, um sobretudo cinza envolve sua figura com uma aura de
+                    sofisticação clássica. Sob
+                    ele, um pullover branco traz uma nota de luminosidade suave, enquanto luvas marrom queimado
+                    adicionam um toque de calor
+                    e textura. Um ensemble que combina o charme vintage com a modernidade sutil, perfeito para os dias
+                    frios de estilo
+                    distinto.</p>
             </div>
-            <section class="inspiracao">
-                <img src="imagens/img4.jpg" >
-                <div class="inspiracao-info">
-                    <h2>x</h2>
-                    <p>xxxxxxxxxxxxxxxxx</p>
-                </div>
+        </section>
+        <section class="inspiracao">
+            <a href="imagens/img4.jpg" class="lightbox-trigger"><img src="imagens/img4.jpg"></a>
+            <div class="inspiracao-info">
+                <h2>Rafaela</h2>
+                <p>Em um jogo harmonioso de tons suaves e frescos, uma camisa azul pastel empresta uma aura serena e
+                    delicada.
+                    Complementando o visual, um shortinho amarelo pastel adiciona um toque de vivacidade e alegria.
+                    Juntos, criam um
+                    conjunto leve e descontraído, perfeito para dias ensolarados de verão, evocando um estilo que
+                    transborda juventude e
+                    elegância descomplicada.</p>
+            </div>
         </section>
     </div>
+    <div style="display: none" ; id="influencers">
+        <section class="inspiracao">
+            <a href="imagens/ditavonteese.jpg" class="lightbox-trigger"><img src="imagens/ditavonteese.jpg"></a>
+            <div class="inspiracao-info">
+                <h2>Dita Von Teese</h2>
+                <p>Dita Von Teese é uma das maiores ícones da moda vintage, conhecida por seu estilo burlesco glamouroso
+                    e
+                    seus looks inspirados nas décadas de 40 e 50.</p>
+                <a href="https://www.instagram.com/ditavonteese" target="_blank">@ditavonteese</a>
+            </div>
+        </section>
+
+        <section class="inspiracao">
+            <a href="imagens/margoandme.png" class=" lightbox-trigger"><img src="imagens/margoandme.png"></a>
+            <div class="inspiracao-info">
+                <h2>Jenny Cipoletti</h2>
+                <p>Jenny é uma influenciadora de moda conhecida por seu blog Margo & Me, onde compartilha seu amor por
+                    moda
+                    vintage e clássica.</p>
+                <a href="https://www.instagram.com/margoandme" target="_blank">@margoandme</a>
+            </div>
+        </section>
+        <section class="inspiracao">
+            <a href="imagens/garypeppergirl.jpg" class="lightbox-trigger"><img src="imagens/garypeppergirl.jpg"></a>
+            <div class="inspiracao-info">
+                <h2>Nicole Warne</h2>
+                <p>Nicole é a fundadora do blog Garry Pepper Girl e é conhecida por seus looks vintage elegantes e
+                    sofisticados.</p>
+                <a href="https://www.instagram.com/garypeppergirl" target="_blank">@garypeppergirl</a>
+            </div>
+        </section>
+        <section class="inspiracao">
+            <a href="imagens/missvictoryviolet.jpg" class="lightbox-trigger"><img
+                    src="imagens/missvictoryviolet.jpg"></a>
+            <div class="inspiracao-info">
+                <h2>Miss Victory Violet</h2>
+                <p>Conhecida por seu estilo pin-up, Miss Victory Violet é uma inspiração para quem ama a moda das
+                    décadas de
+                    40 e 50.</p>
+                <a href="https://www.instagram.com/missvictoryviolet" target="_blank">@missvictoryviolet</a>
+            </div>
+        </section>
+        <section class="inspiracao">
+            <a href="imagens/kristenleo.jpg" class="lightbox-trigger"><img src="imagens/kristenleo.jpg"></a>
+            <div class="inspiracao-info">
+                <h2>Kristen Leo</h2>
+                <p>Kristen é uma influenciadora que combina moda vintage com sustentabilidade, promovendo um estilo de
+                    vida
+                    eco-friendly.</p>
+                <a href="https://www.instagram.com/kristenleo" target="_blank">@kristenleo</a>
+            </div>
+        </section>
+
+    </div>
+
 </body>
 <footer>
     <p id="p_rodape">
         &copy; 2024 Bruxa <b> P </b> - Todos os direitos reservados
     </p>
 </footer>
+
 </html>
