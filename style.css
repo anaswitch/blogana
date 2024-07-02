@@ -221,7 +221,7 @@ footer {
   margin: -8px;
   bottom: 0px;
   width: 100%;
-  position: absolute;
+  /*position: absolute;*/
 
 }
 
@@ -354,7 +354,8 @@ b {
   /* cor do controle deslizante ao passar o mouse */
 }
 
-#mySidenav>a {
+#mySidenav>a,
+.topicos>div>h3 {
   cursor: pointer;
 }
 
@@ -404,4 +405,24 @@ b {
 
 .cadastro-container button:hover {
   background-color: #45a049;
+}
+
+.topicos {
+  margin-bottom: 20px;
+}
+
+.mensagem {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgb(249, 249, 249, 0.4);
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

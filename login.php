@@ -22,7 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $mysqli->query($sql);
 
         if ($result->num_rows > 0) {
-            echo json_encode(["message" => "Login realizado com sucesso!"]);
+            // Obtendo a primeira linha de resultado como um array associativo
+            $row = $result->fetch_assoc();
+            
+            // Extraindo o nome completo do usuário
+            $nomeCompleto = $row['nomecompletocad'];
+            
+            echo json_encode(["message" => "Login realizado com sucesso!", "nome" => $nomeCompleto]);
+
         } else {
             echo json_encode(["message" => "E-mail ou senha incorretos"]);
         }

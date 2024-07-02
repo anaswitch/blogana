@@ -17,6 +17,7 @@ function menuInspiracoes() {
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "none";
+  document.getElementById("forum").style.display = "none";
 
 }
 
@@ -26,6 +27,7 @@ function menuInfluencers() {
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "none";
+  document.getElementById("forum").style.display = "none";
 
   document.getElementById("influencers").style.display = "";
 }
@@ -35,6 +37,7 @@ function menuMain() {
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
+  document.getElementById("forum").style.display = "none";
 
   document.getElementById("login").style.display = "none";
 
@@ -43,6 +46,7 @@ function menuMain() {
 function menuCadastro() {
   closeNav();
   document.getElementById("login").style.display = "none";
+  document.getElementById("forum").style.display = "none";
 
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
@@ -58,8 +62,28 @@ function menuLogin() {
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "";
+  document.getElementById("forum").style.display = "none";
 
 }
+
+function menuForum() {
+  if (sessionStorage.getItem('nome') == null) {
+    menuLogin();
+    return;
+  }
+  closeNav();
+
+
+  document.getElementById("main").style.display = "none";
+  document.getElementById("inspiracao").style.display = "none";
+  document.getElementById("influencers").style.display = "none";
+  document.getElementById("cadastro").style.display = "none";
+  document.getElementById("login").style.display = "none";
+  document.getElementById("forum").style.display = "";
+
+}
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -133,4 +157,110 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
   const result = await response.json();
   document.getElementById('response').innerText = result.message;
+
+  if (result.message === "Login realizado com sucesso!") {
+    // Armazenar credenciais no Session Storage
+    sessionStorage.setItem('nome', result.nome);
+    sessionStorage.setItem('email', email);
+    sessionStorage.setItem('senha', senha);
+    document.getElementById("nomeUsuarioLogado").innerText = result.nome;
+  }
 });
+
+if (sessionStorage.getItem('nome') != null) {
+  document.getElementById("nomeUsuarioLogado").innerText = sessionStorage.getItem('nome');
+
+}
+
+// Função para listar os tópicos
+async function listarTopicos() {
+  const response = await fetch('topicos.php');
+  const topicos = await response.json();
+
+  const topicosList = document.getElementById('topicosList');
+  topicosList.innerHTML = '';
+
+  if (topicos.length > 0) {
+    topicos.forEach(topico => {
+      const div = document.createElement('div');
+      div.innerHTML = `<h3>${topico.topico}</h3>`;
+      topicosList.appendChild(div);
+
+      div.addEventListener('click', () => {
+        listarMensagens(topico.id);
+        document.getElementById('idTopico').value = topico.id;
+      });
+    });
+  } else {
+    topicosList.innerHTML = '<p>Nenhum tópico encontrado.</p>';
+  }
+}
+
+// Função para listar as mensagens de um tópico específico
+async function listarMensagens(idTopico) {
+  const response = await fetch(`mensagens.php?idTopico=${idTopico}`);
+  const mensagens = await response.json();
+
+  const mensagensList = document.getElementById('mensagensList');
+  mensagensList.innerHTML = '';
+  document.getElementById("divNovaMensagemForm").style.display = '';
+  if (mensagens.length > 0) {
+    mensagens.forEach(mensagem => {
+      const div = document.createElement('div');
+      div.classList.add('mensagem');
+      div.innerHTML = `
+                        <p><strong>${mensagem.datahora}</strong></p>
+                        <p>Usuário: ${mensagem.idUser}</p>
+                        <p>${mensagem.mensagem}</p>
+                    `;
+      mensagensList.appendChild(div);
+    });
+  } else {
+    mensagensList.innerHTML = '<p>Nenhuma mensagem encontrada para este tópico.</p>';
+  }
+}
+
+// Event listener para adicionar novo tópico
+document.getElementById('novoTopicoForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const topico = document.getElementById('topico').value;
+  const mensagem = document.getElementById('mensagemTopico').value;
+  const email = sessionStorage.getItem('email');
+  const senha = sessionStorage.getItem('senha');
+
+  const response = await fetch('topicos.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ topico: topico, mensagem: mensagem, email: email, senha: senha })
+  });
+
+  const result = await response.json();
+  document.getElementById('responseTopico').innerText = result.message;
+  listarTopicos();
+});
+
+// Event listener para adicionar nova mensagem
+document.getElementById('novaMensagemForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const mensagem = document.getElementById('mensagemResposta').value;
+  const email = sessionStorage.getItem('email');
+  const senha = sessionStorage.getItem('senha');
+  const idTopico = document.getElementById('idTopico').value;
+
+  const response = await fetch('mensagens.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ mensagem: mensagem, email: email, senha: senha, idTopico: idTopico })
+  });
+
+  const result = await response.json();
+  document.getElementById('responseMensagem').innerText = result.message;
+  listarMensagens(idTopico);
+});
+
+// Carregar tópicos ao carregar a página
+listarTopicos();

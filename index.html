@@ -16,11 +16,12 @@
         <a onclick="menuMain()">Início</a>
         <a onclick="menuInspiracoes()">Inspirações</a>
         <a onclick="menuInfluencers()">Influencers</a>
-        <a href="forum.html">Fórum</a>
+        <a onclick="menuForum()">Fórum</a>
         <a onclick="menuCadastro()">Cadastre-se</a>
         <a onclick="menuLogin()">Login</a>
     </div>
     <button id="botaoMenu" onclick="openNav()">⚜️</button>
+    <span>Bem vindo <span id="nomeUsuarioLogado"></span></span>
     <br><br><br><br>
     <div id="main">
         <h1> A moda vintage</h1>
@@ -214,6 +215,45 @@
             <button type="submit">Login</button>
         </form>
         <div id="response"></div>
+    </div>
+
+    <div style="display: none" ; id="forum">
+        <br><br><br><br>
+
+        <h1>Fórum</h1>
+        <br><br><br><br>
+
+
+
+        <div class="form">
+            <h3>Novo Tópico</h3>
+            <form id="novoTopicoForm">
+                <label for="topico">Tópico:</label>
+                <input type="text" id="topico" name="topico" required>
+                <br>
+                <label for="mensagemTopico">Mensagem:</label>
+                <br>
+                <textarea id="mensagemTopico" name="mensagemTopico" rows="4" required></textarea>
+                <br>
+                <button type="submit">Criar Tópico</button>
+            </form>
+            <div id="responseTopico"></div>
+        </div>
+        <div class="topicos" id="topicosList"></div>
+        <div class="mensagens" id="mensagensList"></div>
+
+        <div class="form" id="divNovaMensagemForm" style="display: none;">
+            <h3>Responder</h3>
+            <form id="novaMensagemForm">
+                <label for="mensagemResposta">Mensagem:</label>
+                <br>
+                <textarea id="mensagemResposta" name="mensagemResposta" rows="4" required></textarea>
+                <br>
+                <input type="hidden" id="idTopico" name="idTopico" value="">
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+            <div id="responseMensagem"></div>
+        </div>
     </div>
 
     <footer>
