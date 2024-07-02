@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS cadastro;
+DROP TABLE IF EXISTS topicos;
+DROP TABLE IF EXISTS mensagens;
+
+
+CREATE TABLE cadastro (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+nomecompletocad VARCHAR(200) NOT NULL,
+emailcad VARCHAR(200) NOT NULL,
+nascimentocad DATE NOT NULL,
+senha VARCHAR(200) NOT NULL);
+
+CREATE TABLE topicos (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+topico VARCHAR(200) NOT NULL,
+op INT NOT NULL);
+
+CREATE TABLE mensagens (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+datahora DATETIME NOT NULL,
+idUser INT NOT NULL,
+mensagem TEXT NOT NULL,
+idTopico INT NOT NULL);
+
+ALTER TABLE topicos ADD CONSTRAINT topicos_op_cadastro_id FOREIGN KEY (op) REFERENCES cadastro(id);
+ALTER TABLE mensagens ADD CONSTRAINT mensagens_idUser_cadastro_id FOREIGN KEY (idUser) REFERENCES cadastro(id);
+ALTER TABLE mensagens ADD CONSTRAINT mensagens_idTopico_topicos_id FOREIGN KEY (idTopico) REFERENCES topicos(id);

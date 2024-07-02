@@ -219,8 +219,9 @@ footer {
   text-align: center;
   height: 50px;
   margin: -8px;
-  bottom: 0;
-  position: static;
+  bottom: 0px;
+  width: 100%;
+  position: absolute;
 
 }
 
@@ -360,4 +361,47 @@ b {
 .inspiracao-info>a {
   text-decoration: none;
   color: white;
+}
+
+.cadastro-container {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro-container h2 {
+  text-align: center;
+}
+
+.cadastro-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.cadastro-container input[type="text"],
+.cadastro-container input[type="email"],
+.cadastro-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cadastro-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cadastro-container button:hover {
+  background-color: #45a049;
 }
