@@ -1,27 +1,35 @@
 <?php
 include("conexao.php");
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+// Definindo o cabeçalho para JSON
+header('Content-Type: application/json');
 
+// Habilitando exibição de erros para fins de depuração (não recomendado para produção)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$sql = "SELECT count(*) as linhas FROM relicariodb WHERE emailcad='$email' AND senhacad='$senha' ";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recebendo os dados do formulário
+    $data = json_decode(file_get_contents('php://input'), true);
 
-$result = $mysqli->query($sql);
+    if (isset($data['email']) && isset($data['senha'])) {
+        $email = $mysqli->real_escape_string($data['email']);
+        $senha = $mysqli->real_escape_string($data['senha']);
 
+        // Verificando as credenciais do usuário
+        $sql = "SELECT * FROM cadastro WHERE emailcad = '$email' AND senhacad = '$senha'";
+        $result = $mysqli->query($sql);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if ($row["linhas"]>0) {
-        echo "Acesso Concedido!";
-        header('Location: index.html');
+        if ($result->num_rows > 0) {
+            echo json_encode(["message" => "Login realizado com sucesso!"]);
+        } else {
+            echo json_encode(["message" => "E-mail ou senha incorretos"]);
+        }
     } else {
-        echo "Usuário e/ou senha inválida";
+        echo json_encode(["message" => "Dados incompletos"]);
     }
 } else {
-    echo "Nenhum resultado encontrado";
+    echo json_encode(["message" => "Método não suportado"]);
 }
-
-mysqli_close($mysqli);
 ?>
-

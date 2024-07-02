@@ -16,6 +16,7 @@ function menuInspiracoes() {
   document.getElementById("inspiracao").style.display = "";
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
+  document.getElementById("login").style.display = "none";
 
 }
 
@@ -24,6 +25,7 @@ function menuInfluencers() {
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
+  document.getElementById("login").style.display = "none";
 
   document.getElementById("influencers").style.display = "";
 }
@@ -34,17 +36,31 @@ function menuMain() {
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "none";
 
+  document.getElementById("login").style.display = "none";
 
 }
 
 function menuCadastro() {
   closeNav();
+  document.getElementById("login").style.display = "none";
 
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("influencers").style.display = "none";
   document.getElementById("cadastro").style.display = "";
 }
+
+function menuLogin() {
+  closeNav();
+
+  document.getElementById("main").style.display = "none";
+  document.getElementById("inspiracao").style.display = "none";
+  document.getElementById("influencers").style.display = "none";
+  document.getElementById("cadastro").style.display = "none";
+  document.getElementById("login").style.display = "";
+
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
@@ -100,4 +116,21 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
   } catch (error) {
     document.getElementById('mensagem').textContent = 'Erro ao realizar o cadastro.';
   }
+});
+
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const email = document.getElementById('emailLogin').value;
+  const senha = document.getElementById('senhaLogin').value;
+
+  const response = await fetch('login.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: email, senha: senha })
+  });
+
+  const result = await response.json();
+  document.getElementById('response').innerText = result.message;
 });

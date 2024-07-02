@@ -18,7 +18,7 @@
         <a onclick="menuInfluencers()">Influencers</a>
         <a href="forum.html">Fórum</a>
         <a onclick="menuCadastro()">Cadastre-se</a>
-        <a href="#">Login</a>
+        <a onclick="menuLogin()">Login</a>
     </div>
     <button id="botaoMenu" onclick="openNav()">⚜️</button>
     <br><br><br><br>
@@ -197,12 +197,31 @@
 
         <p id="mensagem"></p>
     </div>
-    <script src="script.js"></script>
+
+    <div style="display: none" ; id="login">
+        <br><br><br><br>
+
+        <h1>Login de Usuários</h1>
+        <br><br><br><br>
+
+        <form id="loginForm">
+            <label for="email">E-mail:</label>
+            <input type="email" id="emailLogin" name="email" required>
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senhaLogin" name="senha" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+        <div id="response"></div>
+    </div>
+
     <footer>
         <p id="p_rodape">
             &copy; 2024 Bruxa <b> P </b> - Todos os direitos reservados
         </p>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 
