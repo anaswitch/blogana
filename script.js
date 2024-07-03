@@ -15,7 +15,6 @@ function menuInspiracoes() {
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "";
   document.getElementById("influencers").style.display = "none";
-  document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "none";
   document.getElementById("forum").style.display = "none";
 
@@ -25,7 +24,6 @@ function menuInfluencers() {
   closeNav();
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
-  document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "none";
   document.getElementById("forum").style.display = "none";
 
@@ -36,7 +34,6 @@ function menuMain() {
   document.getElementById("main").style.display = "";
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("influencers").style.display = "none";
-  document.getElementById("cadastro").style.display = "none";
   document.getElementById("forum").style.display = "none";
 
   document.getElementById("login").style.display = "none";
@@ -44,25 +41,23 @@ function menuMain() {
 }
 
 function menuCadastro() {
-  closeNav();
-  document.getElementById("login").style.display = "none";
-  document.getElementById("forum").style.display = "none";
-
-  document.getElementById("main").style.display = "none";
-  document.getElementById("inspiracao").style.display = "none";
-  document.getElementById("influencers").style.display = "none";
-  document.getElementById("cadastro").style.display = "";
+  menuLogin();
+  document.getElementById("chk").click();
 }
 
 function menuLogin() {
   closeNav();
-
+  let checkbox = document.getElementById('chk');
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("influencers").style.display = "none";
-  document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "";
   document.getElementById("forum").style.display = "none";
+  document.getElementById("chk").click();
+
+  if (!checkbox.checked) {
+    checkbox.click();
+  }
 
 }
 
