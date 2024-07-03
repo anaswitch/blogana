@@ -131,9 +131,9 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
     });
 
     const result = await response.json();
-    document.getElementById('mensagem').textContent = result.message;
+    alert(result.message);
   } catch (error) {
-    document.getElementById('mensagem').textContent = 'Erro ao realizar o cadastro.';
+    alert('Erro ao realizar o cadastro.');
   }
 });
 
@@ -151,7 +151,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   });
 
   const result = await response.json();
-  document.getElementById('response').innerText = result.message;
 
   if (result.message === "Login realizado com sucesso!") {
     // Armazenar credenciais no Session Storage
