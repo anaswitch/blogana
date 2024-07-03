@@ -5,6 +5,7 @@
   font-family: bruxadesenho;
   src: url(Witcha.otf);
 }
+
 @font-face {
   font-family: riolanik;
   src: url(Riolanik.otf);
@@ -53,7 +54,7 @@
 /*Personalização Body/ INDEX*/
 body {
   background-image: url(imagens/background.png);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
 }
 
@@ -61,17 +62,19 @@ body {
 .h1titulo {
   font-family: hatolie;
   color: #FFFFF3;
-  font-size: 100px;
-  position:relative;
+  font-size: 600%;
+  position: relative;
   text-align: center;
 }
+
 h1 {
   font-family: hatolie;
   font-size: 55px;
   color: #FFFFF3;
   justify-content: center;
 }
-p{
+
+p {
   font-family: riolanik;
   font-size: 30px;
   text-align: center;
@@ -170,8 +173,6 @@ footer {
   height: 50px;
   margin: -8px;
   bottom: 0px;
-  width: 100%;
-  /*position: absolute;*/
 
 }
 
