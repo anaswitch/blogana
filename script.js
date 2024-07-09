@@ -17,6 +17,8 @@ function menuInspiracoes() {
   document.getElementById("influencers").style.display = "none";
   document.getElementById("login").style.display = "none";
   document.getElementById("forum").style.display = "none";
+  document.getElementById("brecho").style.display = "none";
+
 
 }
 
@@ -26,6 +28,7 @@ function menuInfluencers() {
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("login").style.display = "none";
   document.getElementById("forum").style.display = "none";
+  document.getElementById("brecho").style.display = "none";
 
   document.getElementById("influencers").style.display = "";
 }
@@ -46,6 +49,7 @@ function menuMain() {
   document.getElementById("forum").style.display = "none";
 
   document.getElementById("login").style.display = "none";
+  document.getElementById("brecho").style.display = "none";
 
 }
 
@@ -63,6 +67,7 @@ function menuLogin() {
   document.getElementById("login").style.display = "";
   document.getElementById("forum").style.display = "none";
   document.getElementById("chk").click();
+  document.getElementById("brecho").style.display = "none";
 
   if (!checkbox.checked) {
     checkbox.click();
@@ -81,9 +86,9 @@ function menuForum() {
   document.getElementById("main").style.display = "none";
   document.getElementById("inspiracao").style.display = "none";
   document.getElementById("influencers").style.display = "none";
-  document.getElementById("cadastro").style.display = "none";
   document.getElementById("login").style.display = "none";
   document.getElementById("forum").style.display = "";
+  document.getElementById("brecho").style.display = "none";
 
 }
 
