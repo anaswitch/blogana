@@ -218,7 +218,7 @@ async function listarMensagens(idTopico) {
       div.classList.add('mensagem');
       div.innerHTML = `
                         <p><strong>${mensagem.datahora}</strong></p>
-                        <p>Usuário: ${mensagem.idUser}</p>
+                        <p>Usuário: ${mensagem.nomecompletocad}</p>
                         <p>${mensagem.mensagem}</p>
                     `;
       mensagensList.appendChild(div);

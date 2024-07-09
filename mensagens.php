@@ -4,7 +4,7 @@ include("conexao.php");
 // Listar mensagens de um tópico específico
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['idTopico'])) {
     $idTopico = $mysqli->real_escape_string($_GET['idTopico']);
-    $sql = "SELECT * FROM mensagens WHERE idTopico = $idTopico";
+    $sql = "SELECT * FROM mensagens M INNER join cadastro C on C.id=idUser  WHERE idTopico = $idTopico";
     $result = $mysqli->query($sql);
 
     if ($result->num_rows > 0) {

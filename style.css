@@ -1,9 +1,15 @@
 /* Fontes */
 @font-face {
-  font-family: hatolie;
-  src: url(Hatolie.ttf);
+
   font-family: bruxadesenho;
   src: url(Witcha.otf);
+}
+
+/* Fontes */
+@font-face {
+  font-family: hatolie;
+  src: url(Hatolie.ttf);
+
 }
 
 @font-face {
@@ -89,7 +95,7 @@ p {
   font-size: 17px;
   text-align: center;
   justify-content: center;
-  display: flex; 
+  display: flex;
 }
 
 .h2ispiracao {
@@ -97,7 +103,7 @@ p {
   font-size: 35px;
   text-align: center;
   justify-content: center;
-  display: flex; 
+  display: flex;
 }
 
 /* The side navigation menu */
@@ -409,7 +415,7 @@ p {
   position: relative;
   width: 100%;
   height: 100%;
-  
+
 }
 
 label {
@@ -488,14 +494,16 @@ footer {
   background-color: #AF876F;
   text-align: center;
   height: 47px;
-  display:block;
+  display: block;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
-.p_rodape{
+
+.p_rodape {
   font-size: 20px;
 }
+
 #p_rodape {
   background-color: #FFFFF3;
 }
@@ -504,6 +512,3 @@ b {
   font-family: bruxadesenho;
   font-size: 30px;
 }
-
-
-
