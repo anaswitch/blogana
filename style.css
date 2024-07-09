@@ -195,6 +195,16 @@ p {
   text-decoration: underline;
 }
 
+#brecho {
+  display: flex;
+  justify-content: center;
+  /* Alinha os itens horizontalmente no centro */
+  align-items: center;
+  /* Alinha os itens verticalmente no centro */
+  flex-wrap: wrap;
+  /* Permite que as seções quebrem para a próxima linha se necessário */
+}
+
 #inspiracao {
   display: flex;
   justify-content: center;
@@ -383,6 +393,11 @@ p {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
 }
 
 .form {
