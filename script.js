@@ -29,6 +29,15 @@ function menuInfluencers() {
 
   document.getElementById("influencers").style.display = "";
 }
+function menuBrecho() {
+  closeNav();
+  document.getElementById("main").style.display = "none";
+  document.getElementById("inspiracao").style.display = "none";
+  document.getElementById("login").style.display = "none";
+  document.getElementById("forum").style.display = "none";
+
+  document.getElementById("brecho").style.display = "";
+}
 function menuMain() {
   closeNav();
   document.getElementById("main").style.display = "";
@@ -258,3 +267,5 @@ document.getElementById('novaMensagemForm').addEventListener('submit', async fun
 
 // Carregar tópicos ao carregar a página
 listarTopicos();
+
+// Scroll rodape
