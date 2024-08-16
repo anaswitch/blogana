@@ -98,6 +98,12 @@ p {
   display: flex;
 }
 
+.inspiracao img {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
+
 .h2ispiracao {
   font-family: hatolie;
   font-size: 35px;
@@ -203,7 +209,11 @@ p {
   /* Alinha os itens verticalmente no centro */
   flex-wrap: wrap;
   /* Permite que as seções quebrem para a próxima linha se necessário */
+  font-family: hatolie;
+  font-size: 20px;
 }
+
+
 
 #inspiracao {
   display: flex;
